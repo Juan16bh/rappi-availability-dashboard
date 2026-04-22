@@ -1,0 +1,50 @@
+{
+  "name": "rappi-availability-dashboard",
+  "version": "1.0.0",
+  "description": "Rappi Store Availability Dashboard — AI-powered with Claude",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:dev": "vite build && electron .",
+    "electron:pack": "vite build && electron-builder --win portable"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "recharts": "^2.14.0",
+    "papaparse": "^5.5.0",
+    "lucide-react": "^0.483.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4",
+    "vite": "^6.0.0",
+    "electron": "^36.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.rappi.availability-dashboard",
+    "productName": "Rappi Store Availability Dashboard",
+    "icon": "src/assets/Logo_rappi.png",
+    "directories": {
+      "output": "dist-electron"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "src/assets/Logo_rappi.png",
+      "package.json"
+    ],
+    "win": {
+      "icon": "src/assets/Logo_rappi.png",
+      "target": [
+        {
+          "target": "portable",
+          "arch": ["x64"]
+        }
+      ],
+      "artifactName": "Rappi-Dashboard.exe"
+    }
+  }
+}
